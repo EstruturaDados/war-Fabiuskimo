@@ -113,15 +113,15 @@ int sortearMissao(void) {
 
 int verificarVitoria(const Territorio *mapa, int n, int missaoId) {
     if (missaoId == 0) {
-        // Missão 1: Conquistar 2 territórios
+     
         int count = 0;
         for (int i = 0; i < n; i++) {
-            if (strcmp(mapa[i].cor, "Jogador") == 0) count++; // cor "Jogador" usada no cadastro
+            if (strcmp(mapa[i].cor, "Jogador") == 0) count++;
         }
         return (count >= 2);
     } 
     else if (missaoId == 1) {
-        // Missão 2: Destruir um exército inimigo completamente
+       
         for (int i = 0; i < n; i++) {
             const char *corInimiga = mapa[i].cor;
             if (strcmp(corInimiga, "Jogador") == 0) continue;
@@ -150,7 +150,7 @@ void limparBufferEntrada(void) {
 int main(void) {
     srand(time(NULL));
 
-    // Cadastro de territórios
+
     Territorio *mapa = alocarMapa(MAX_TERRITORIOS);
     if (!mapa) {
         fprintf(stderr, "Erro ao alocar memória.\n");
@@ -176,7 +176,7 @@ int main(void) {
    
     int missao = sortearMissao();
 
-    // Loop principal do jogo
+  
     int opcao, venceu = 0;
     do {
         exibirMapa(mapa, MAX_TERRITORIOS);
@@ -203,3 +203,4 @@ int main(void) {
     liberarMemoria(mapa);
     return 0;
 }
+
