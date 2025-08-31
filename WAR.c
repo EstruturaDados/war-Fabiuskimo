@@ -8,14 +8,14 @@
 #define TAM_COR  10
 #define NUM_MISSOES 2
 
-// ---------------- Estrutura ----------------
+
 typedef struct {
     char nome[TAM_NOME];
     char cor[TAM_COR];
     int tropas;
 } Territorio;
 
-// ---------------- Protótipos ----------------
+
 Territorio* alocarMapa(int n);
 void liberarMemoria(Territorio *mapa);
 
@@ -31,7 +31,7 @@ int verificarVitoria(const Territorio *mapa, int n, int missaoId);
 
 void limparBufferEntrada(void);
 
-// ---------------- Funções Implementadas ----------------
+
 Territorio* alocarMapa(int n) {
     return (Territorio*) calloc(n, sizeof(Territorio));
 }
@@ -134,7 +134,7 @@ int verificarVitoria(const Territorio *mapa, int n, int missaoId) {
                 }
             }
 
-            if (todosZerados) return 1; // Vitória: exército inimigo eliminado
+            if (todosZerados) return 1; 
         }
         return 0;
     }
@@ -146,7 +146,7 @@ void limparBufferEntrada(void) {
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
 
-// ---------------- Main ----------------
+
 int main(void) {
     srand(time(NULL));
 
@@ -173,7 +173,7 @@ int main(void) {
         puts("");
     }
 
-    // Sorteio de missão
+   
     int missao = sortearMissao();
 
     // Loop principal do jogo
